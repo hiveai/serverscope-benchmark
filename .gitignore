@@ -3,3 +3,4 @@
 /build/
 /dist/
 /serverscope_benchmark.egg-info/
+.vscode/settings.json

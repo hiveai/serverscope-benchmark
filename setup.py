@@ -33,9 +33,9 @@ setup(
         'Operating System :: POSIX :: Other',
         'Operating System :: Unix',
         'Environment :: Console',
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python3',
+        'Programming Language :: Python3 :: 3',
+        'Programming Language :: Python3 :: 3.8',
         'Topic :: System :: Benchmark',
     ],
 )

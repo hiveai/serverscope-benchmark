@@ -36,7 +36,7 @@ class SpeedtestBenchmark(Benchmark):
 
     def run(self):
         print_(c.GREEN + "Running speedtest benchmark:" + c.RESET)
-        return run_and_print(["python", "speedtest.py", "--verbose"]).replace("'", "&#39;")
+        return run_and_print(["python2", "speedtest.py", "--verbose"]).replace("'", "&#39;")
 
 
 class DownloadBenchmark(Benchmark):
@@ -100,13 +100,13 @@ class DDBenchmark(Benchmark):
 
         return result
 
-
+# See: https://fio.readthedocs.io/en/latest/fio_doc.html
 class FioBenchmark(Benchmark):
     code = 'fio'
-    _fio_dir = './fio-fio-2.8'
+    _fio_dir = './fio-3.23'
 
     def download(self):
-        url = 'https://github.com/serverscope/serverscope-tools/raw/master/fio-2.8.tar.gz'
+        url = 'https://git.kernel.org/pub/scm/linux/kernel/git/axboe/fio.git/snapshot/fio-3.23.tar.gz'
         print_(c.GREEN + 'Downloading & building fio from %s ' % url + c.RESET)
 
         subprocess.call(['curl', '-s', '-L', '-o', 'fio.tar.gz', url], stdout=self.stdout)
