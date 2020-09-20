@@ -25,7 +25,7 @@ if __name__ == '__main__':
     payload = {
         "email": args["email"], "plan": args["plan"], "locale": args["locale"]}
     
-    payload["os"] = platform.system()
+    payload["os"] = platform.dist()
     if payload["os"] == ('', '', '') and os.path.isfile('/etc/system-release'):
         payload["os"] = platform.linux_distribution(supported_dists=['system'])
 

@@ -56,7 +56,7 @@ __failed_to_install_dependencies () {
     echo
 }
 
-__ensure_python3 () {
+__ensure_python2 () {
     installer="$1"
     which python > /dev/null
     if [ $? -ne 0 ]; then
@@ -66,7 +66,7 @@ __ensure_python3 () {
                 __install "$installer" python-minimal
                 __install "$installer" libpython-stdlib
             elif [ "$installer" == "yum" ]; then
-                __install "$installer" python3
+                __install "$installer" python2
             else
                 __failed_to_install_dependencies
             fi
@@ -140,7 +140,7 @@ if [ $? -eq 0 ]; then
     if [ -z "$_plan" ] || [ -z "$_email" ]; then
         echo Run serverscope manually:
         echo
-        echo "    python3 -m serverscope_benchmark -e \"youremail@yourdomain.com\" -p \"Plan\|Hosting provider\""
+        echo "    python2 -m serverscope_benchmark -e \"youremail@yourdomain.com\" -p \"Plan\|Hosting provider\""
         echo
     else
         python -m serverscope_benchmark.__main__ -e "$_email" -p "$_plan" -i "$_included_benchmarks"
